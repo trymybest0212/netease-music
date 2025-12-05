@@ -2,19 +2,25 @@ import Discover from "../pages/discover";
 import Friend from "../pages/friend";
 import MyMusic from "../pages/my-music";
 
-const routes = [{
-        path: '/',
-        exact: true,
-        component: Discover
-    },
-    {
-        path: '/my',
-        component: MyMusic
-    },
-    {
-        path: '/friend',
-        component: Friend
-    },
-]
+const routes = [
+  {
+    path: "/",
+    exact: true,
+    component: Discover,
+  },
+  {
+    path: "/discover",
+    exact: true,
+    component: Discover,
+  },
+  {
+    path: "/my",
+    component: MyMusic,
+  },
+  {
+    path: "/friend",
+    component: Friend,
+  },
+];
 
-export default routes
+export default routes;
