@@ -1,7 +1,15 @@
+import { renderRoutes } from "react-router-config";
+import { HashRouter } from "react-router-dom";
+
+import routes from "./router";
+
+import Header from "./pages/components/header";
+import Footer from "./pages/components/footer";
+
 export default function App() {
   return (
-    <div>
-      <h2>app</h2>
-    </div>
-  )
+    <HashRouter>
+      <Header /> {renderRoutes(routes)} <Footer />
+    </HashRouter>
+  );
 }
