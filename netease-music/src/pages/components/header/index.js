@@ -32,7 +32,7 @@ export default function Header() {
               return (
                 <div key={item.title} className="select-item">
                   {index < 3 ? (
-                    <NavLink to={item.link} exact>
+                    <NavLink to={item.link} >
                       {item.title}
                       <i className="sprite_01 icon"></i>
                     </NavLink>
