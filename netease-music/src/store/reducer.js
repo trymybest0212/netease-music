@@ -1,9 +1,7 @@
-import { combineReducers } from "redux";
+import { combineReducers } from "redux-immutable";
 
 import { reducer as recommendReducer } from "./recommend-store/index";
 
-const reducers = combineReducers({
-  recommendReducer,
+export default combineReducers({
+  recommend: recommendReducer,
 });
-
-export default reducers;

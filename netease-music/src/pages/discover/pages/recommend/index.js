@@ -1,24 +1,24 @@
 import { memo } from "react";
-import { connect } from "react-redux";
 
-import { getTopBannerActions } from "@/store/recommend-store/actionCreator.js";
-import { useEffect } from "react";
+import {
+  RecommendWrapper,
+  Content,
+  RecommendLeft,
+  RecommendRight,
+} from "./style";
 
+import TopBanner from "./components/top-banner";
+
+// 使用hooks
 function Recommend(props) {
-  const { getBanners } = props;
-  useEffect(() => {
-    getBanners();
-  }, [getBanners]);
-  return <div>Recommend</div>;
+  return (
+    <RecommendWrapper>
+      <TopBanner></TopBanner>
+      <Content>
+        <RecommendLeft></RecommendLeft>
+        <RecommendRight></RecommendRight>
+      </Content>
+    </RecommendWrapper>
+  );
 }
-
-const mapStateToProps = (state) => ({
-  topBanners: state,
-});
-const mapDispatchToProps = (dispatch) => ({
-  getBanners: () => {
-    dispatch(getTopBannerActions());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(memo(Recommend));
+export default memo(Recommend);
