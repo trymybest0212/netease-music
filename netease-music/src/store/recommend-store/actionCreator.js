@@ -4,6 +4,7 @@ import {
   getHotRecommend,
   getNewAlbum,
   getRecommendRank,
+  getArtistList,
 } from "@/service/recommend";
 
 const changeTopBannerAction = (res) => ({
@@ -79,3 +80,13 @@ export const geRecommendRankActions = (id) => {
     } catch (error) {}
   };
 };
+const getSettleSings = (res) => ({
+  type: actionTypes.CHANGE_SETTLE_SINGER,
+  settleSings: res,
+});
+export function getSettleSingersAction() {
+  return async (dispatch) => {
+    const { artists } = await getArtistList(5, 5001);
+    dispatch(getSettleSings(artists));
+  };
+}

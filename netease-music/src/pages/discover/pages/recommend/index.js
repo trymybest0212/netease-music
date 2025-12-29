@@ -11,6 +11,9 @@ import TopBanner from "./components/top-banner";
 import HotRecommend from "./components/hot-recommend";
 import NewAlbum from "./components/new-album";
 import RecommendRanking from "./components/recommend-ranking";
+import LoginTip from "./components/login-tip";
+import SettleSinger from "./components/settle-singer";
+import HotAnchor from "./components/hot-anchor";
 
 // 使用hooks
 function Recommend(props) {
@@ -23,7 +26,11 @@ function Recommend(props) {
           <NewAlbum></NewAlbum>
           <RecommendRanking></RecommendRanking>
         </RecommendLeft>
-        <RecommendRight></RecommendRight>
+        <RecommendRight>
+          <LoginTip></LoginTip>
+          <SettleSinger></SettleSinger>
+          <HotAnchor></HotAnchor>
+        </RecommendRight>
       </Content>
     </RecommendWrapper>
   );

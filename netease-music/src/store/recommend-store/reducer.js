@@ -9,6 +9,7 @@ const defaultState = Map({
   newRank: {},
   upRank: {},
   originRank: {},
+  settleSings: [],
 });
 export default (state = defaultState, action) => {
   switch (action.type) {
@@ -25,6 +26,8 @@ export default (state = defaultState, action) => {
       return state.set("upRank", action.upRank);
     case actionTypes.CHANGE_ORIGIN_RANK:
       return state.set("originRank", action.originRank);
+    case actionTypes.CHANGE_SETTLE_SINGER:
+      return state.set("settleSings", action.settleSings);
     default:
       return state;
   }

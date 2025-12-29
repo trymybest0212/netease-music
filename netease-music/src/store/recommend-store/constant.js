@@ -11,3 +11,5 @@ export const NEW_RANK = 19723756;
 export const UP_RANK = 2884035;
 export const ORIGIN_RANK = 3779629
 
+export const CHANGE_SETTLE_SINGER = 'recommend/CHANGE_SETTLE_SINGER'
+
