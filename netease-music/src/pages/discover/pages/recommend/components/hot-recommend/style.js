@@ -6,4 +6,4 @@ export const RecommendWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
   }
-`
+`;

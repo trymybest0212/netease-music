@@ -11,3 +11,13 @@ export function getHotRecommend() {
     url: "/personalized?limit=8",
   });
 }
+
+export function getNewAlbum() {
+  return request({
+    url: "/album/new",
+    params: {
+      limit: 10,
+      offset: 0,
+    },
+  });
+}

@@ -5,6 +5,7 @@ import * as actionTypes from "./constant";
 const defaultState = Map({
   topBanners: [],
   recommendHot: [],
+  newAlbum:[]
 });
 export default (state = defaultState, action) => {
   switch (action.type) {
@@ -13,6 +14,8 @@ export default (state = defaultState, action) => {
       return state.set("topBanners", action.topBanners);
     case actionTypes.CHANGE_RECOMMEND_HOT:
       return state.set("recommendHot", action.recommendHot);
+      case actionTypes.CHANGE_NEW_ALBUM:
+      return state.set("newAlbum", action.newAlbum);
     default:
       return state;
   }

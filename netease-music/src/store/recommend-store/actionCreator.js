@@ -1,5 +1,9 @@
 import * as actionTypes from "./constant";
-import { getTopBanners, getHotRecommend } from "@/service/recommend";
+import {
+  getTopBanners,
+  getHotRecommend,
+  getNewAlbum,
+} from "@/service/recommend";
 
 const changeTopBannerAction = (res) => ({
   type: actionTypes.CHANGE_TOP_BANNER,
@@ -28,5 +32,18 @@ export const getRecommendHotActions = () => {
     } catch (error) {
       console.log(error, "error");
     }
+  };
+};
+
+const changeNewAlbumAction = (res) => ({
+  type: actionTypes.CHANGE_NEW_ALBUM,
+  newAlbum: res,
+});
+export const getNewAlbumActions = () => {
+  return async (dispatch) => {
+    try {
+      const { albums } = await getNewAlbum();
+      dispatch(changeNewAlbumAction(albums));
+    } catch (error) {}
   };
 };
