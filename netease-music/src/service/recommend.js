@@ -21,3 +21,12 @@ export function getNewAlbum() {
     },
   });
 }
+
+export function getRecommendRank(id) {
+  return request({
+    url: "/playlist/detail",
+    params: {
+      id,
+    },
+  });
+}

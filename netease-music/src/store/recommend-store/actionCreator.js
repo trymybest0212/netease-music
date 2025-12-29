@@ -3,6 +3,7 @@ import {
   getTopBanners,
   getHotRecommend,
   getNewAlbum,
+  getRecommendRank,
 } from "@/service/recommend";
 
 const changeTopBannerAction = (res) => ({
@@ -44,6 +45,37 @@ export const getNewAlbumActions = () => {
     try {
       const { albums } = await getNewAlbum();
       dispatch(changeNewAlbumAction(albums));
+    } catch (error) {}
+  };
+};
+
+const getNewRankActions = (res) => ({
+  type: actionTypes.CHANGE_NEW_RANK,
+  newRank: res,
+});
+const getOriginRankActions = (res) => ({
+  type: actionTypes.CHANGE_ORIGIN_RANK,
+  originRank: res,
+});
+const getUpRankActions = (res) => ({
+  type: actionTypes.CHANGE_UP_RANK,
+  upRank: res,
+});
+export const geRecommendRankActions = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await getRecommendRank(id);
+      switch (id) {
+        case actionTypes.NEW_RANK:
+          dispatch(getNewRankActions(res));
+          break;
+        case actionTypes.UP_RANK:
+          dispatch(getUpRankActions(res));
+          break;
+        case actionTypes.ORIGIN_RANK:
+          dispatch(getOriginRankActions(res));
+          break;
+      }
     } catch (error) {}
   };
 };
