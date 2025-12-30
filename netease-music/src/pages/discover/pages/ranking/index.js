@@ -1,6 +1,21 @@
+import { memo, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
-export default function Ranking() {
+import { RankingWrapper, RankingLeft } from "./style";
+import { changeTopListAction } from "@/store/ranking-store/actionCreator";
+
+import TopRanking from "./top-ranking";
+
+export default memo(function Ranking() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(changeTopListAction());
+  }, [dispatch]);
   return (
-    <div>Ranking</div>
-  )
-}
+    <RankingWrapper className="wrap-v2">
+      <RankingLeft>
+        <TopRanking />
+      </RankingLeft>
+    </RankingWrapper>
+  );
+});
