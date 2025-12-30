@@ -26,7 +26,7 @@ const TopRanking = memo(() => {
   useEffect(() => {
     const id = topList?.[currentIndex]?.id;
     id && dispatch(changeRankingDetailAction(id));
-  }, [dispatch, currentIndex,topList]);
+  }, [dispatch, currentIndex, topList]);
   return (
     <TopRankingWrapper>
       {topList.map((item, index) => {

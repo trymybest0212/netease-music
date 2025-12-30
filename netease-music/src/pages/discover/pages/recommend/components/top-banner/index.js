@@ -27,7 +27,7 @@ export default function TopBanner() {
   //   },
   // });
   const dispatch = useDispatch();
-  const { topBanners } = useSelector(
+  const { topBanners = [] } = useSelector(
     (state) => ({
       //   topBanners: state.get('recommend').get("topBanners"),
       topBanners: state.getIn(["recommend", "topBanners"]),
@@ -54,7 +54,7 @@ export default function TopBanner() {
             ref={carouselRef}
             beforeChange={handleChange}
           >
-            {topBanners.map((item, index) => {
+            {topBanners?.map((item, index) => {
               return (
                 <div className="banner-item" key={item.imageUrl}>
                   <img className="image" src={item.imageUrl}></img>

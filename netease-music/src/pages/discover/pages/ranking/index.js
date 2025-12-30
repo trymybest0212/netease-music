@@ -1,10 +1,12 @@
 import { memo, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { RankingWrapper, RankingLeft } from "./style";
+import { RankingWrapper, RankingLeft, RankingRight } from "./style";
 import { changeTopListAction } from "@/store/ranking-store/actionCreator";
 
 import TopRanking from "./top-ranking";
+import RankingRightHeader from "./ranking-right-header";
+import RankList from "./rank-list";
 
 export default memo(function Ranking() {
   const dispatch = useDispatch();
@@ -16,6 +18,10 @@ export default memo(function Ranking() {
       <RankingLeft>
         <TopRanking />
       </RankingLeft>
+      <RankingRight>
+        <RankingRightHeader />
+        <RankList></RankList>
+      </RankingRight>
     </RankingWrapper>
   );
 });
