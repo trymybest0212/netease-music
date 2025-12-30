@@ -20,14 +20,13 @@ const TopRanking = memo(() => {
   );
 
   const handleItemClick = (index) => {
+    if (index === currentIndex) return;
     dispatch(changeCurrentIndex(index));
-    const id = topList?.[currentIndex]?.id;
-    dispatch(changeRankingDetailAction(id));
   };
   useEffect(() => {
-    const id = topList?.[0]?.id;
+    const id = topList?.[currentIndex]?.id;
     id && dispatch(changeRankingDetailAction(id));
-  }, [dispatch, topList]);
+  }, [dispatch, currentIndex,topList]);
   return (
     <TopRankingWrapper>
       {topList.map((item, index) => {
