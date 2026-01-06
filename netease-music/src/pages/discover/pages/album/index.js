@@ -1,6 +1,16 @@
+import  { memo } from 'react';
 
-export default function Album() {
+import TopAlbum from './componets/top-album';
+import HotAlbum from './componets/hot-album';
+import {
+  AblumWrapper
+} from './style';
+
+export default memo(function HYAlbum() {
   return (
-    <div>Album</div>
+    <AblumWrapper className="wrap-v2">
+      <HotAlbum></HotAlbum>
+      <TopAlbum/>
+    </AblumWrapper>
   )
-}
+})
